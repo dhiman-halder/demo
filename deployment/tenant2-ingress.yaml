@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: tenant2  
+spec:
+  rules:
+  - host: tenant2.plygrnd.entwinemedia.com
+    http:
+      paths:
+      - path: /e
+        backend:
+          serviceName: node-e
+          servicePort: 80
+      - path: /v
+        backend:
+          serviceName: node-v
+          servicePort: 80        

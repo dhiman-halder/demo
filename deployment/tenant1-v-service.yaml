@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-v
+  namespace: tenant1
+spec:
+  selector:
+    app: node-v
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: ClusterIP

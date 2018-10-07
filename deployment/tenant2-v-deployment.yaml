@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-v
+  labels:
+    app: node-v
+  namespace: tenant2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-v
+  template:
+    metadata:
+      labels:
+        app: node-v
+    spec:
+      containers:
+      - name: node-v
+        image: dhimanhalder/node-v:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TENANT_ID
+          value: "Tenant2"
